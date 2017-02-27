@@ -1,0 +1,65 @@
+//
+//  PrefixHeader.pch
+//  HFTY
+//
+//  Created by easub on 16/10/19.
+//  Copyright © 2016年 easub. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <Masonry.h>
+
+/**
+ 控制器
+ */
+#import "HFMainViewController.h"
+#import "HFViewController.h"
+#import "HFHomeViewController.h"
+#import "HFMapViewController.h"
+#import "HFCollectionViewController.h"
+#import "HFDownloadViewController.h"
+#import "HFFeedbackViewController.h"
+#import "HFThumbUpViewController.h"
+
+/**
+ * Category
+ */
+#import "UIBarButtonItem+HFBarButtonItem.h"
+
+#define HFColor(r, g, b, h) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:h]
+
+// RGB（0x??????）
+#define HFColorRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+//网易红
+#define HFColor_WYRed HFColorRGB(0xEF001D)
+
+//获取屏幕宽度
+#define HFScreenWidth ([UIScreen mainScreen].bounds.size.width)
+
+//侧滑比例
+#define HFZoomSideslipScale 0.2
+
+#define HFAnimationNormalDuration 0.25
+
+//获取屏幕高度
+#define HFScreenHeigh ([UIScreen mainScreen].bounds.size.height)
+
+//获取当前View宽度
+#define HFCurrentViewWidth self.view.bounds.size.width
+
+//获取当前View高度
+#define HFCurrentViewHeight self.view.bounds.size.height
+
+//获取UserDefaults
+#define HFUserDefaults [NSUserDefaults standardUserDefaults]
+
+#ifdef DEBUG
+#define NSLog(...) NSLog(@"<%s :%d行> %s\n %@\n\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],__LINE__,__PRETTY_FUNCTION__,[NSString stringWithFormat:__VA_ARGS__])
+#else
+#define NSLog(...)
+#endif
+
+
+#endif /* PrefixHeader_pch */
